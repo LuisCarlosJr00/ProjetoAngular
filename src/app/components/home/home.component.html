@@ -1,1 +1,195 @@
-<p>home works!</p>
+<nav class="navigation" id="navigation-main" role="navigation" aria-label="Navegação principal">
+  <div class="navigation-container">
+    <a href="/" class="navigation-logo" aria-label="EcoChic - Página Inicial">
+      <span class="navigation-logo-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8c0 5.5-4.78 10-10 10"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></g></svg>
+      </span>
+      <span class="navigation-logo-text">EcoChic</span>
+    </a>
+    <button id="navigation-toggle" class="navigation-toggle" aria-expanded="false" aria-controls="navigation-mobile-menu" aria-label="Abrir menu">
+      <span class="navigation-toggle-icon" aria-hidden="true">☰</span>
+    </button>
+    <div class="navigation-links" role="menubar">
+      <a class="navigation-link" href="#explore-section">Explorar</a>
+      <a class="navigation-link" href="#news-section">Notícias</a>
+      <a class="navigation-link" href="#testimonials-section">Depoimentos</a>
+    </div>
+    <div id="navigation-mobile-menu" class="navigation-mobile-menu" aria-hidden="true">
+      <div class="navigation-mobile-overlay" tabindex="-1"></div>
+      <div class="navigation-mobile-content" role="menu">
+        <!-- Mobile menu links removed to avoid duplicate items on large screens.
+             The responsive header (`.navigation-links`) remains the single source of navigation. -->
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="ecochic-homepage" aria-label="EcoChic Homepage">
+  <section id="hero-section" class="hero-wrapper" role="region" aria-label="Welcome to EcoChic">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">EcoChic — Moda que renasce</h1>
+        <p class="hero-subtitle">Descubra estilo consciente e peças com história.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary">Crie sua conta</button>
+          <button class="btn btn-outline">Entrar</button>
+        </div>
+      </div>
+      <div class="hero-carousel" role="region" aria-roledescription="carousel" aria-label="EcoChic featured images">
+        <div class="carousel-container">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide active" role="group" aria-label="Slide 1 of 3">
+              <div class="slide-image-wrapper">
+                <img src="https://images.pexels.com/photos/374679/pexels-photo-374679.jpeg" alt="Slide 1" loading="eager" />
+                <div class="slide-overlay"></div>
+              </div>
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 2 of 3">
+              <div class="slide-image-wrapper">
+                <img src="https://images.pexels.com/photos/8774406/pexels-photo-8774406.jpeg" alt="Slide 2" loading="lazy" />
+                <div class="slide-overlay"></div>
+              </div>
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 3 of 3">
+              <div class="slide-image-wrapper">
+                <img src="https://images.pexels.com/photos/24843384/pexels-photo-24843384.jpeg" alt="Slide 3" loading="lazy" />
+                <div class="slide-overlay"></div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous slide">‹</button>
+            <button class="carousel-btn next" id="carousel-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="carousel-indicators" role="tablist" aria-label="Carousel slides">
+            <button class="indicator active" role="tab" aria-selected="true" aria-label="Go to slide 1" data-slide="0"></button>
+            <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 2" data-slide="1"></button>
+            <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 3" data-slide="2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news-section" class="news-wrapper" role="region" aria-label="Notícias e Benefícios">
+    <app-news-benefits></app-news-benefits>
+  </section>
+
+  <section id="explore-section" class="explore-wrapper" role="region" aria-label="Explore Brechó">
+    <app-explore-brecho></app-explore-brecho>
+  </section>
+
+  <section id="testimonials-section" class="testimonials-wrapper" role="region" aria-labelledby="testimonials-heading">
+    <div class="testimonials-container">
+      <h2 id="testimonials-heading">O que nossa comunidade diz</h2>
+    </div>
+    <app-community-testimonials></app-community-testimonials>
+  </section>
+
+  <footer id="footer-ecochic" class="footer-section">
+    <div class="footer-inner">
+      <!-- Brand + Tagline -->
+      <div class="footer-brand">
+        <div class="footer-logo-group">
+          <span class="footer-logo-icon" aria-hidden="true">🌿</span>
+          <span class="footer-logo-text">EcoChic</span>
+        </div>
+        <p class="footer-tagline">Moda sustentável que transforma o futuro.<br />Seu guia consciente para um planeta mais verde.</p>
+        <div class="footer-badge">
+          <span class="badge-icon">♻️</span>
+          <div class="badge-text">
+            <strong>100% Sustentável</strong>
+            <small>Reciclado & Reutilizado</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Columns -->
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#colecao">Nossa Coleção</a></li>
+            <li><a href="#como">Como Funciona</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#blog">Blog Sustentável</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="#ajuda">Central de Ajuda</a></li>
+            <li><a href="#devolucao">Política de Devolução</a></li>
+            <li><a href="#termos">Termos de Uso</a></li>
+            <li><a href="#privacidade">Privacidade</a></li>
+            <li><a href="#tamanhos">Guia de Tamanhos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col contact">
+          <h4>Contato</h4>
+          <p class="contact-item">
+            <span class="icon">✉️</span>
+            <a href="mailto:contato&#64;ecochic.com.br">contato&#64;ecochic.com.br</a>
+          </p>
+          <p class="contact-item">
+            <span class="icon">📞</span>
+            <a href="tel:+5511999999999">(11) 99999-9999</a>
+          </p>
+          <p class="contact-item">
+            <span class="icon">📍</span>
+            São Paulo, SP – Brasil
+          </p>
+        </div>
+      </div>
+
+      <!-- Newsletter + Social -->
+      <div class="footer-newsletter-section">
+        <div class="footer-newsletter">
+          <h4>Receba novidades sustentáveis</h4>
+          <p>Fique por dentro das novas coleções e dicas de moda consciente.</p>
+          <form class="newsletter-form" aria-label="Inscrição na newsletter">
+            <input type="email" placeholder="Seu melhor e-mail" required />
+            <button type="submit">Inscrever-se</button>
+          </form>
+        </div>
+
+        <div class="footer-social">
+          <h4>Siga-nos</h4>
+          <div class="social-links">
+            <a href="https://facebook.com/ecochic" aria-label="Facebook" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/ecochic" aria-label="Instagram" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m0 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25m4.245-1.002c-.563 0-1.02.457-1.02 1.02s.457 1.02 1.02 1.02 1.02-.457 1.02-1.02-.457-1.02-1.02-1.02m-4.245 1.752c-3.313 0-6 2.687-6 6s2.687 6 6 6 6-2.687 6-6-2.687-6-6-6m0 1.5c2.481 0 4.5 2.019 4.5 4.5s-2.019 4.5-4.5 4.5-4.5-2.019-4.5-4.5 2.019-4.5 4.5-4.5z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/ecochic" aria-label="Twitter" title="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 002.856-3.915 10 10 0 01-2.836.856 4.958 4.958 0 002.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p class="copyright">© 2025 EcoChic. Todos os direitos reservados.</p>
+        <p class="made-with">Feito com <span class="heart">💚</span> pelo planeta</p>
+        <div class="footer-legal">
+          <a href="#cookies">Política de Cookies</a>
+          <a href="#acessibilidade">Acessibilidade</a>
+          <a href="#sitemap">Mapa do Site</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>

@@ -1,0 +1,132 @@
+.news-benefits-wrapper {
+  padding: 2rem 0;
+}
+
+.benefits-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.benefits-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  color: #3e3024;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.benefits-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.benefit-card {
+  background: color-mix(in srgb, #f0ede5 95%, transparent);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(46, 33, 22, 0.05);
+  border: 1px solid color-mix(in srgb, #000 2%, transparent);
+  transition: all 250ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(46, 33, 22, 0.1);
+}
+
+.benefit-image {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #e8dcc8;
+  object-fit: cover;
+}
+
+.benefit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.benefit-card:hover .benefit-image img {
+  transform: scale(1.05);
+}
+
+.benefit-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.benefit-title {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #3e3024;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.benefit-description {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .benefit-image {
+    height: 200px;
+  }
+  
+  .benefit-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .benefit-image {
+    height: 220px;
+  }
+  
+  .benefit-content {
+    padding: 1rem;
+  }
+  
+  .benefits-header {
+    margin-bottom: 0.75rem;
+  }
+}

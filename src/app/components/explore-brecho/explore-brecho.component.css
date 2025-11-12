@@ -1,0 +1,134 @@
+.explore-brecho-wrapper {
+  padding: 2rem 0;
+}
+
+.brecho-container {
+  display: flex;
+  justify-content: center;
+}
+
+.brecho-box {
+  background: color-mix(in srgb, #f0ede5 95%, transparent);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(46, 33, 22, 0.05);
+  border: 1px solid color-mix(in srgb, #000 2%, transparent);
+}
+
+.brecho-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.brecho-title {
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+  color: #3e3024;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+}
+
+.brecho-subtitle {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.brecho-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: #3e3024;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  color: #6b6b6b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.brecho-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-primary-brecho {
+  background: #6aa96b;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 12px rgba(106, 169, 107, 0.15);
+}
+
+.btn-primary-brecho:hover {
+  background: #5a9a5b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(106, 169, 107, 0.25);
+}
+
+.btn-outline-brecho {
+  background: transparent;
+  color: #6aa96b;
+  border: 2px solid #6aa96b;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-outline-brecho:hover {
+  background: rgba(106, 169, 107, 0.05);
+  border-color: #5a9a5b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .brecho-box {
+    padding: 1.75rem 2rem;
+  }
+  
+  .brecho-stats {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .brecho-box {
+    padding: 1.5rem;
+  }
+  
+  .brecho-stats {
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    flex: 1 1 auto;
+    min-width: 80px;
+  }
+}

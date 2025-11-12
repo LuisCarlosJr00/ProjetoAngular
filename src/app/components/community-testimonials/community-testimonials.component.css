@@ -1,0 +1,104 @@
+.community-testimonials-wrapper {
+  padding: 2rem 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.testimonials-col { display: flex; flex-direction: column; gap: 1.2rem; }
+.col-right { gap: 1rem; }
+
+.image-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(46,33,22,0.08);
+  border: 1px solid color-mix(in srgb, #000 4%, transparent);
+  display: none;
+}
+
+.testimonial-card {
+  background: color-mix(in srgb, var(--color-surface, #f6f8f4) 96%, transparent);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(46,33,22,0.04);
+  border: 1px solid color-mix(in srgb, var(--color-border, #e6e6e6) 30%, transparent);
+}
+
+.testimonial-main { min-height: 130px; }
+
+.stars {
+  color: #6aa96b; /* earthy green */
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.testimonial-text {
+  margin: 0 0 0.6rem 0;
+  color: color-mix(in srgb, var(--color-on-surface-secondary, #4b4b4b) 85%, transparent);
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.testimonial-author {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.testimonial-location {
+  display: block;
+  color: color-mix(in srgb, var(--color-on-surface-secondary, #6b6b6b) 75%, transparent);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Responsive: stack into single column on medium screens */
+@media (max-width: 900px) {
+  .testimonials-grid { 
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .image-card img { 
+    height: 250px; 
+  }
+}
+
+@media (max-width: 600px) {
+  .image-card img { 
+    height: 200px; 
+  }
+  
+  .testimonial-card { 
+    padding: 0.9rem; 
+  }
+  
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+  
+  .stars {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-card img { 
+    height: 180px; 
+  }
+  
+  .testimonials-grid {
+    gap: 1rem;
+  }
+  
+  .testimonials-col { 
+    gap: 0.8rem; 
+  }
+}
