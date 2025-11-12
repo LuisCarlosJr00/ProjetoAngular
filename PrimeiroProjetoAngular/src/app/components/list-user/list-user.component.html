@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <!-- Barra de pesquisa -->
+  <div class="mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Pesquisar usuários..."
+      [(ngModel)]="termoPesquisa"
+      (input)="filtrarUsuarios()"
+    >
+  </div>
+
+  <!-- Mensagens de feedback -->
+  <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ mensagemSucesso }}
+    <button type="button" class="btn-close" (click)="mensagemSucesso = ''" aria-label="Fechar"></button>
+  </div>
+
+  <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ mensagemErro }}
+    <button type="button" class="btn-close" (click)="mensagemErro = ''" aria-label="Fechar"></button>
+  </div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="carregando" class="text-center my-3">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+  </div>
+
+  <!-- Tabela de usuários -->
+  <table class="table table-hover" *ngIf="!carregando && usuariosFiltrados.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Data de Criação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuariosFiltrados">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.dataCriacao | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary me-2" (click)="editarUsuario(usuario.id)">
+            Editar
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="excluirUsuario(usuario.id)">
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Mensagem quando não há usuários -->
+  <div *ngIf="!carregando && usuariosFiltrados.length === 0" class="text-center my-4">
+    <p class="text-muted">Nenhum usuário encontrado.</p>
+  </div>
+</div>
