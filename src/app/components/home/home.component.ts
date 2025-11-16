@@ -2,11 +2,12 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { NewsBenefitsComponent } from '../news-benefits/news-benefits.component';
 import { ExploreBrechoComponent } from '../explore-brecho/explore-brecho.component';
 import { CommunityTestimonialsComponent } from '../community-testimonials/community-testimonials.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NewsBenefitsComponent, ExploreBrechoComponent, CommunityTestimonialsComponent],
+  imports: [NewsBenefitsComponent, ExploreBrechoComponent, CommunityTestimonialsComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

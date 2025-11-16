@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -7,10 +7,12 @@ import { UsuarioResponse } from '../../models/usuario.model';
 import { tick } from '@angular/core/testing';
 
 
+
+
 @Component({
   selector: 'app-lista-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './list-user.component.html',
   styleUrls: ['./list-user.component.css']
 })
@@ -23,11 +25,11 @@ export class ListUserComponent implements OnInit {
   termoPesquisa: string = '';
   idEdicao?: number;
 
-  constructor(
-    private usuarioService: UsuarioService,
-    private cdr: ChangeDetectorRef,
-    private router: Router
-  ) {}
+  private usuarioService = inject(UsuarioService);
+  private cdr = inject(ChangeDetectorRef);
+  private router = inject(Router);
+
+  constructor() {}
 
   ngOnInit(): void {
     console.log('🔵 ngOnInit - Iniciando carregamento de usuários');
