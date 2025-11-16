@@ -41,7 +41,9 @@ export class RegisterComponent implements OnInit {
   ) {
     this.registerForm = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.email]],
+      cpf: ['', []],
+      telefone: ['', []],
       senha: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -117,6 +119,8 @@ export class RegisterComponent implements OnInit {
           this.registerForm.patchValue({
             nome: u.nome,
             email: u.email,
+            cpf: (u as any).cpf || '',
+            telefone: (u as any).telefone || '',
             // não precisa preencher a senha ao editar
           });
           this.carregando = false;

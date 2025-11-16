@@ -1,0 +1,128 @@
+:host {
+	display: block;
+}
+
+/* Layout wrapper: left card + right image */
+.register-wrapper {
+	display: flex;
+	align-items: stretch;
+	gap: 24px;
+	max-width: 1200px;
+	margin: 40px auto;
+	padding: 0 20px;
+}
+
+.card-left {
+	background: #dcd9c4; /* soft beige */
+	border-radius: 28px;
+	padding: 40px 56px;
+	flex: 1 1 55%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card-right {
+	flex: 1 1 45%;
+	border-radius: 28px;
+	background-color: #123b2f;
+	background-size: cover;
+	background-position: center;
+	min-height: 360px;
+}
+
+.title {
+	color: #123b2f; /* dark green */
+	font-size: 48px;
+	margin: 0 0 32px 0;
+	font-weight: 700;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	width: 100%;
+}
+
+.field {
+	width: 100%;
+}
+
+.input-pill {
+	width: 100%;
+	height: 48px;
+	border-radius: 12px;
+	border: none;
+	padding: 0 22px;
+	background: #f6f6f4; /* off-white */
+	color: #123b2f;
+	font-weight: 600;
+	letter-spacing: 0.6px;
+	text-align: center;
+	box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+	outline: none;
+}
+
+.input-pill::placeholder {
+	color: #123b2f;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.actions {
+	margin-top: 8px;
+	display: flex;
+	justify-content: center;
+}
+
+.submit-btn {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #123b2f; /* dark green */
+	color: #fff;
+	border-radius: 12px;
+	border: none;
+	padding: 12px 48px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(18,59,47,0.15);
+	transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.submit-btn[disabled] {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.submit-btn:hover:not([disabled]) {
+	transform: translateY(-2px);
+}
+
+.success {
+	color: #0b7a4d;
+	margin-top: 12px;
+}
+
+.error {
+	color: #a33;
+	margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+	.register-wrapper {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.card-right {
+		min-height: 240px;
+		order: -1;
+	}
+
+	.title { font-size: 32px; }
+}
+
