@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../service/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 
 @Component({
@@ -20,8 +21,9 @@ import { ActivatedRoute, Router } from '@angular/router';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
-  ],
+    MatInputModule,
+    NavbarComponent
+],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

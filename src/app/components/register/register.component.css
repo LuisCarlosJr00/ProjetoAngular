@@ -3,17 +3,65 @@
 }
 
 /* Layout wrapper: left card + right image */
+/* Layout wrapper: left card + right image */
+/* O Wrapper que segura tudo */
 .register-wrapper {
-	display: flex;
-	align-items: stretch;
-	gap: 24px;
-	max-width: 1200px;
-	margin: 40px auto;
-	padding: 0 20px;
+    /* FLEXBOX */
+    display: flex;
+    align-items: stretch;
+    /* Diminuí o gap para garantir que cabe */
+    gap: 0; 
+    
+    /* TAMANHO */
+    width: 100%;
+    /* Garante que não ultrapasse a largura da tela de jeito nenhum */
+    max-width: 100vw; 
+    
+    /* ALTURA: 100vh menos a navbar (chutei 80px, ajuste se precisar) */
+    height: calc(100vh - 80px);
+    
+    /* Zera as margens para colar na navbar */
+    margin: 0;
+    padding: 0;
+    
+    /* O SEGREDO: Corta qualquer coisa que tente sair da caixa */
+    overflow: hidden; 
+}
+
+/* Lado Esquerdo (Formulário) */
+.register-left-content {
+    flex: 1; /* Ocupa 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o form verticalmente */
+    
+    /* Se o form for muito grande, só ele rola, não a página toda */
+    overflow-y: auto; 
+    
+    /* Ajuste o padding para não ficar colado nas bordas */
+    padding: 2rem; 
+    background-color: #e6e2d3; /* Sua cor bege */
+}
+
+/* Lado Direito (Imagem Verde) */
+.register-right-image {
+    flex: 1; /* Ocupa 50% */
+    position: relative;
+    background-color: #1a4d2e; /* Sua cor verde */
+    
+    /* Garante que a imagem cubra tudo sem esticar */
+    display: flex;
+}
+
+.register-right-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* A imagem se adapta sem distorcer */
+    display: block;
 }
 
 .card-left {
-	background: #dcd9c4; /* soft beige */
+	background: #e8dcc8; /* soft beige */
 	border-radius: 28px;
 	padding: 40px 56px;
 	flex: 1 1 55%;
@@ -24,12 +72,14 @@
 }
 
 .card-right {
-	flex: 1 1 45%;
-	border-radius: 28px;
-	background-color: #123b2f;
-	background-size: cover;
-	background-position: center;
-	min-height: 360px;
+    flex: 1 1 45%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 20px 20px 0;
+    background-color: 123b2f; /* dark green */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .title {

@@ -1,7 +1,8 @@
-<h1> Register Works!</h1>
-
+<app-navbar></app-navbar>
 <div class="register-wrapper">
+
 	<div class="card-left">
+		
 		<h1 class="title">Cadastro do Brechó</h1>
 
 		<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-container" novalidate>
@@ -30,5 +31,7 @@
 		</form>
 	</div>
 
-	<div class="card-right" role="img" aria-label="imagem de brechó"></div>
+	<div class="card-right">
+  		<img src="https://tse4.mm.bing.net/th/id/OIP.CYhOd3GwAMvCh3xNcaveVQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Imagem do Brechó">
+	</div>
 </div>

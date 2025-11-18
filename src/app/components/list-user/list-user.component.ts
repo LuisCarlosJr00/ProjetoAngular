@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../../service/usuario.service';
 import { UsuarioResponse } from '../../models/usuario.model';
 import { tick } from '@angular/core/testing';
-
+import { NavbarComponent } from "../navbar/navbar.component";
 
 
 
 @Component({
   selector: 'app-lista-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, NavbarComponent],
   templateUrl: './list-user.component.html',
   styleUrls: ['./list-user.component.css']
 })

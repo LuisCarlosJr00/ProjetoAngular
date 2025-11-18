@@ -3,11 +3,15 @@ import { NewsBenefitsComponent } from '../news-benefits/news-benefits.component'
 import { ExploreBrechoComponent } from '../explore-brecho/explore-brecho.component';
 import { CommunityTestimonialsComponent } from '../community-testimonials/community-testimonials.component';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NewsBenefitsComponent, ExploreBrechoComponent, CommunityTestimonialsComponent, CommonModule],
+  imports: [
+    NewsBenefitsComponent, ExploreBrechoComponent, CommunityTestimonialsComponent,
+    CommonModule, RouterLink, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

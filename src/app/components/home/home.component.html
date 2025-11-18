@@ -1,28 +1,4 @@
-<nav class="navigation" id="navigation-main" role="navigation" aria-label="Navegação principal">
-  <div class="navigation-container">
-    <a href="/" class="navigation-logo" aria-label="EcoChic - Página Inicial">
-      <span class="navigation-logo-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8c0 5.5-4.78 10-10 10"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></g></svg>
-      </span>
-      <span class="navigation-logo-text">EcoChic</span>
-    </a>
-    <button id="navigation-toggle" class="navigation-toggle" aria-expanded="false" aria-controls="navigation-mobile-menu" aria-label="Abrir menu">
-      <span class="navigation-toggle-icon" aria-hidden="true">☰</span>
-    </button>
-    <div class="navigation-links" role="menubar">
-      <a class="navigation-link" href="#explore-section">Explorar</a>
-      <a class="navigation-link" href="#news-section">Notícias</a>
-      <a class="navigation-link" href="#testimonials-section">Depoimentos</a>
-    </div>
-    <div id="navigation-mobile-menu" class="navigation-mobile-menu" aria-hidden="true">
-      <div class="navigation-mobile-overlay" tabindex="-1"></div>
-      <div class="navigation-mobile-content" role="menu">
-        <!-- Mobile menu links removed to avoid duplicate items on large screens.
-             The responsive header (`.navigation-links`) remains the single source of navigation. -->
-      </div>
-    </div>
-  </div>
-</nav>
+<app-navbar></app-navbar>
 
 <main id="ecochic-homepage" aria-label="EcoChic Homepage">
   <section id="hero-section" class="hero-wrapper" role="region" aria-label="Welcome to EcoChic">
@@ -31,8 +7,8 @@
         <h1 class="hero-title">EcoChic — Moda que renasce</h1>
         <p class="hero-subtitle">Descubra estilo consciente e peças com história.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" routerLink="/register">Crie sua conta</a>
-          <button class="btn btn-outline">Entrar</button>
+          <button class="btn btn-primary" routerLink="/register">Crie sua conta</button>
+          <button class="btn btn-outline" routerLink="/list-user">Listar Cadastros</button>
         </div>
       </div>
       <div class="hero-carousel" role="region" aria-roledescription="carousel" aria-label="EcoChic featured images">
@@ -72,18 +48,18 @@
   </section>
 
   <section id="news-section" class="news-wrapper" role="region" aria-label="Notícias e Benefícios">
-    <!--<app-news-benefits></app-news-benefits>-->
+    <app-news-benefits></app-news-benefits>
   </section>
 
   <section id="explore-section" class="explore-wrapper" role="region" aria-label="Explore Brechó">
-    <!--<app-explore-brecho></app-explore-brecho>-->
+    <app-explore-brecho></app-explore-brecho>
   </section>
 
   <section id="testimonials-section" class="testimonials-wrapper" role="region" aria-labelledby="testimonials-heading">
     <div class="testimonials-container">
       <h2 id="testimonials-heading">O que nossa comunidade diz</h2>
     </div>
-    <!--<app-community-testimonials></app-community-testimonials>-->
+    <app-community-testimonials></app-community-testimonials>
   </section>
 
   <footer id="footer-ecochic" class="footer-section">
@@ -154,7 +130,7 @@
           <p>Fique por dentro das novas coleções e dicas de moda consciente.</p>
           <form class="newsletter-form" aria-label="Inscrição na newsletter">
             <input type="email" placeholder="Seu melhor e-mail" required />
-            <button type="submit">Inscrever-se</button>
+            <a type="submit" routerLink="/register">Inscrever-se</a>
           </form>
         </div>
 
