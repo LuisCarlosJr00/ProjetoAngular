@@ -76,8 +76,69 @@ export class ListUserComponent implements OnInit {
   // Métodos para serem implementados depois
   editarUsuario(id: number): void {
     console.log('Editar usuário ID:', id);
-    // navegar para o formulário com id como param
-    this.router.navigate(['/register', id]);
+
+    // Tenta encontrar o usuário nas listas já carregadas
+    const usuario = this.usuarios.find(u => u.id === id) || this.usuariosFiltrados.find(u => u.id === id);
+
+    const executarEdicao = (u: UsuarioResponse) => {
+      // Abre prompts para o usuário editar os campos (cancelar retorna null)
+      const novoNome = prompt('Editar nome:', u.nome);
+      if (novoNome === null) {
+        // usuário cancelou a edição
+        return;
+      }
+
+      const novoEmail = prompt('Editar email:', u.email ?? '');
+      if (novoEmail === null) {
+        // usuário cancelou a edição
+        return;
+      }
+
+      const payload: any = { id: u.id, nome: novoNome, email: novoEmail };
+
+      this.carregando = true;
+      this.mensagemErro = '';
+      this.mensagemSucesso = '';
+
+      this.usuarioService.atualizar(payload).subscribe({
+        next: (resp) => {
+          // Substitui o usuário atualizado nas listas locais
+          this.usuarios = this.usuarios.map(item => item.id === resp.id ? resp : item);
+          this.usuariosFiltrados = this.usuariosFiltrados.map(item => item.id === resp.id ? resp : item);
+
+          this.mensagemSucesso = 'Usuário atualizado com sucesso!';
+          this.carregando = false;
+          this.cdr.detectChanges();
+        },
+        error: (error) => {
+          console.error('❌ Erro ao atualizar usuário:', error);
+          this.mensagemErro = 'Erro ao atualizar usuário. Tente novamente.';
+          this.carregando = false;
+          this.cdr.detectChanges();
+        }
+      });
+    };
+
+    if (usuario) {
+      executarEdicao(usuario);
+      return;
+    }
+
+    // Se usuário não estiver na memória, busca do backend antes de editar
+    this.carregando = true;
+    this.mensagemErro = '';
+    this.usuarioService.buscarPorId(id).subscribe({
+      next: (u) => {
+        this.carregando = false;
+        executarEdicao(u);
+      },
+      error: (error) => {
+        console.error('❌ Erro ao buscar usuário:', error);
+        this.mensagemErro = 'Erro ao buscar usuário. Tente novamente.';
+        this.carregando = false;
+        this.cdr.detectChanges();
+      }
+    });
   }
 
 
