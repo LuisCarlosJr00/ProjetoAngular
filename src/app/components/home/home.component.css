@@ -1,0 +1,135 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Menu */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #4CAF50;
+}
+
+.menu-item:active {
+  transform: translateY(-4px);
+}
+
+.icone {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.menu-item:nth-child(1) .icone {
+  animation-delay: 0s;
+}
+
+.menu-item:nth-child(2) .icone {
+  animation-delay: 0.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.menu-item h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.menu-item p {
+  font-size: 1rem;
+  color: #777;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Efeito gradiente no hover */
+.menu-item:hover h2 {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .menu-item {
+    padding: 30px 20px;
+  }
+
+  .icone {
+    font-size: 3rem;
+  }
+
+  .menu-item h2 {
+    font-size: 1.3rem;
+  }
+}

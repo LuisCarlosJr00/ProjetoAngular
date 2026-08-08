@@ -1,0 +1,81 @@
+<div class="container">
+  <header>
+    <h1>Lista de Usuários</h1>
+    <a routerLink="/" class="link-home">Home</a>
+  </header>
+
+  <main>
+    <!-- Mensagem de Erro -->
+    @if (mensagemErro) {
+      <div class="mensagem-erro">
+        ❌ {{ mensagemErro }}
+      </div>
+    }
+
+    <!-- Loading -->
+    @if (carregando) {
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>⏳ Carregando usuários...</p>
+      </div>
+    }
+
+    <!-- Lista vazia -->
+    @if (!carregando && usuarios.length === 0 && !mensagemErro) {
+      <div class="lista-vazia">
+        <p>📭 Nenhum usuário cadastrado ainda.</p>
+      </div>
+    }
+
+    <!-- Tabela de usuários -->
+    @if (!carregando && usuarios.length > 0) {
+      <div class="tabela-container">
+        <!-- Campo de Pesquisa -->
+        <div class="pesquisa-container">
+          <input 
+            type="text" 
+            class="input-pesquisa"
+            placeholder="🔍 Pesquisar por nome ou email..."
+            [(ngModel)]="termoPesquisa"
+            (input)="filtrarUsuarios()">
+        </div>
+
+        <div class="acoes-topo">
+          <span class="total">Total: {{ usuariosFiltrados.length }} de {{ usuarios.length }} usuário(s)</span>
+        </div>
+
+        <table class="tabela-usuarios">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th class="coluna-acoes">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (usuario of usuariosFiltrados; track usuario.id) {
+              <tr>
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.email }}</td>
+                <td class="coluna-acoes">
+                  <button 
+                    class="btn-icone btn-editar" 
+                    (click)="editarUsuario(usuario.id)"
+                    title="Editar usuário">
+                    ✏️
+                  </button>
+                  <button 
+                    class="btn-icone btn-excluir" 
+                    (click)="excluirUsuario(usuario.id)"
+                    title="Excluir usuário">
+                    🗑️
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </main>
+</div>  

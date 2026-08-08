@@ -1,0 +1,294 @@
+/* Container principal */
+div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+header h1 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 0;
+  text-shadow: none;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+/* Link Home */
+.link-home {
+  color: #999;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.link-home:hover {
+  color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.link-home:active {
+  transform: scale(0.95);
+}
+
+/* Container do formulário */
+main {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Grupos de input */
+form div {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  padding: 0;
+  min-height: auto;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* Labels */
+label {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 8px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+/* Mensagem de erro de validação */
+.erro-validacao {
+  color: #dc3545;
+  font-size: 0.75rem;
+  margin-top: 5px;
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.erro-validacao span {
+  display: block;
+  margin-top: 3px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mensagens de Sucesso e Erro */
+.mensagem-sucesso {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-left: 4px solid #28a745;
+  color: #155724;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  animation: slideIn 0.4s ease-out;
+}
+
+.mensagem-erro {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-left: 4px solid #dc3545;
+  color: #721c24;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Inputs */
+input {
+  padding: 15px;
+  border: 2px solid #d3d3d3;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2196F3;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  transform: translateY(-2px);
+}
+
+input:hover {
+  border-color: #b0b0b0;
+  background-color: white;
+}
+
+/* Validação de email - borda vermelha quando inválido e perdeu o foco */
+input[type="email"]:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+/* Botão */
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.15);
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+header h2 {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  div {
+    padding: 15px;
+  }
+  
+  main {
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+  
+  header h2 {
+    font-size: 2rem;
+  }
+  
+  input, button {
+    padding: 12px;
+  }
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Modo escuro desabilitado - mantém sempre o tema claro */
+@media (prefers-color-scheme: dark) {
+  main {
+    background: #ffffff;
+    color: #333;
+  }
+  
+  label {
+    color: #555;
+  }
+  
+  input {
+    background-color: #ffffff;
+    border-color: #e1e5e9;
+    color: #333;
+  }
+  
+  input:focus {
+    background-color: #ffffff;
+    border-color: #667eea;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+}
