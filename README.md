@@ -1,6 +1,14 @@
-# ProjetoAngular
+# Sistema de Gerenciamento de Usuários
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.18.
+Frontend em Angular para cadastro e listagem de usuários, consumindo a API REST em Spring Boot do repositório [gerenciamento-backend](https://github.com/luis-ferreira-jr/gerenciamento-backend).
+
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli).
+
+## Deploy
+
+- Frontend: Vercel (build `npm run build`, output `dist/projeto-angular/browser`, ver `vercel.json`).
+- API: ver README do `gerenciamento-backend` para deploy no Fly.io + banco Neon.
+- A URL da API em produção é configurada em `src/environments/environment.prod.ts`.
 
 ## Development server
 
