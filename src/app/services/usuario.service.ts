@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario, UsuarioResponse } from '../models/usuario.model';
+import { Usuario, UsuarioResponse, UsuarioUpdate } from '../models/usuario.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -18,5 +18,13 @@ export class UsuarioService {
 
   listar(): Observable<UsuarioResponse[]> {
     return this.http.get<UsuarioResponse[]>(this.apiUrl);
+  }
+
+  atualizar(id: number, usuario: UsuarioUpdate): Observable<UsuarioResponse> {
+    return this.http.put<UsuarioResponse>(`${this.apiUrl}/${id}`, usuario);
+  }
+
+  excluir(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

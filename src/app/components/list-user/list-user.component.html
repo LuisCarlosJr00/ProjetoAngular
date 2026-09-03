@@ -58,15 +58,15 @@
                 <td>{{ usuario.nome }}</td>
                 <td>{{ usuario.email }}</td>
                 <td class="coluna-acoes">
-                  <button 
-                    class="btn-icone btn-editar" 
-                    (click)="editarUsuario(usuario.id)"
+                  <button
+                    class="btn-icone btn-editar"
+                    (click)="editarUsuario(usuario)"
                     title="Editar usuário">
                     ✏️
                   </button>
-                  <button 
-                    class="btn-icone btn-excluir" 
-                    (click)="excluirUsuario(usuario.id)"
+                  <button
+                    class="btn-icone btn-excluir"
+                    (click)="excluirUsuario(usuario)"
                     title="Excluir usuário">
                     🗑️
                   </button>
@@ -78,4 +78,74 @@
       </div>
     }
   </main>
-</div>  
+
+  <!-- Modal de edição -->
+  @if (usuarioEditando) {
+    <div class="modal-overlay" (click)="cancelarEdicao()">
+      <div class="modal" (click)="$event.stopPropagation()">
+        <h2>Editar usuário</h2>
+
+        @if (mensagemErroEdicao) {
+          <div class="mensagem-erro">❌ {{ mensagemErroEdicao }}</div>
+        }
+
+        <form [formGroup]="editForm" (ngSubmit)="salvarEdicao()">
+          <div class="campo">
+            <label for="edit-nome">Nome</label>
+            <input id="edit-nome" type="text" formControlName="nome">
+            @if (nomeEdit.invalid && nomeEdit.touched) {
+              <span class="erro-campo">Nome deve ter pelo menos 3 caracteres.</span>
+            }
+          </div>
+
+          <div class="campo">
+            <label for="edit-email">Email</label>
+            <input id="edit-email" type="email" formControlName="email">
+            @if (emailEdit.invalid && emailEdit.touched) {
+              <span class="erro-campo">Informe um email válido.</span>
+            }
+          </div>
+
+          <div class="campo">
+            <label for="edit-cpf">CPF</label>
+            <input id="edit-cpf" type="text" formControlName="cpf" maxlength="11" (input)="onCpfInputEdit($event)">
+            @if (cpfEdit.invalid && cpfEdit.touched) {
+              <span class="erro-campo">CPF inválido.</span>
+            }
+          </div>
+
+          <div class="campo">
+            <label for="edit-senha">Nova senha (opcional)</label>
+            <input id="edit-senha" type="password" formControlName="senha" placeholder="Deixe em branco para manter a atual">
+            @if (senhaEdit.invalid && senhaEdit.touched) {
+              <span class="erro-campo">Senha deve ter letras e números, mínimo 6 caracteres.</span>
+            }
+          </div>
+
+          <div class="modal-acoes">
+            <button type="button" class="btn-secundario" (click)="cancelarEdicao()">Cancelar</button>
+            <button type="submit" class="btn-primario" [disabled]="salvandoEdicao">
+              {{ salvandoEdicao ? 'Salvando...' : 'Salvar' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+
+  <!-- Modal de confirmação de exclusão -->
+  @if (usuarioExcluindo) {
+    <div class="modal-overlay" (click)="cancelarExclusao()">
+      <div class="modal modal-pequeno" (click)="$event.stopPropagation()">
+        <h2>Excluir usuário</h2>
+        <p>Tem certeza que deseja excluir <strong>{{ usuarioExcluindo.nome }}</strong>? Essa ação não pode ser desfeita.</p>
+        <div class="modal-acoes">
+          <button type="button" class="btn-secundario" (click)="cancelarExclusao()">Cancelar</button>
+          <button type="button" class="btn-perigo" [disabled]="excluindo" (click)="confirmarExclusao()">
+            {{ excluindo ? 'Excluindo...' : 'Excluir' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
