@@ -1,67 +1,71 @@
-# Sistema de Gerenciamento de Usuários
+# Sistema de Gerenciamento de Usuários — Frontend
 
-Frontend em Angular para cadastro e listagem de usuários, consumindo a API REST em Spring Boot do repositório [gerenciamento-backend](https://github.com/luis-ferreira-jr/gerenciamento-backend).
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-informational)
 
-Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli).
+Aplicação Angular para cadastro, listagem, edição e exclusão de usuários, consumindo uma API REST própria em Spring Boot.
 
-## Deploy
+**🔗 Demo ao vivo:** https://projeto-angular-jade.vercel.app
 
-- Frontend: Vercel (build `npm run build`, output `dist/projeto-angular/browser`, ver `vercel.json`).
-- API: ver README do `gerenciamento-backend` para deploy no Fly.io + banco Neon.
-- A URL da API em produção é configurada em `src/environments/environment.prod.ts`.
+> Repositório do backend: [gerenciamento-backend](https://github.com/luis-ferreira-jr/gerenciamento-backend)
 
-## Development server
+## Visão geral
 
-To start a local development server, run:
+| | |
+|---|---|
+| **Frontend** | Angular 20 (standalone components), Angular Material, RxJS |
+| **Backend** | [Spring Boot + Postgres](https://github.com/luis-ferreira-jr/gerenciamento-backend) |
+| **Hospedagem** | Vercel (frontend) · Render (API) · Neon (banco Postgres) |
 
-```bash
-ng serve
+```mermaid
+flowchart LR
+    A[Usuário no navegador] --> B[Angular · Vercel]
+    B -- HTTP/JSON --> C[API Spring Boot · Render]
+    C -- JPA/Hibernate --> D[(Postgres · Neon)]
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades
 
-## Code scaffolding
+- ✅ Cadastro de usuário com validação de nome, email, CPF (dígito verificador real) e senha
+- ✅ Listagem de usuários com busca por nome/email
+- ✅ Edição de usuário (nome, email, CPF e, opcionalmente, senha) via modal
+- ✅ Exclusão de usuário com confirmação
+- ✅ Feedback de carregamento e erros de validação vindos da API
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Rodando localmente
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Pré-requisitos: Node.js 20+ e o [backend](https://github.com/luis-ferreira-jr/gerenciamento-backend) rodando em `http://localhost:8080` (veja o README dele para subir com H2, sem precisar de banco externo).
 
 ```bash
-ng build
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Acesse `http://localhost:4200`. Em desenvolvimento, a API é apontada em `src/environments/environment.ts`; em produção, em `environment.prod.ts` (trocado automaticamente no build via `angular.json`).
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Build de produção
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Gera os artefatos em `dist/projeto-angular/browser`. O deploy no Vercel usa o `vercel.json` deste repositório (build command + rewrite de rotas para o Angular Router funcionar em produção).
 
-For end-to-end (e2e) testing, run:
+## Estrutura
 
-```bash
-ng e2e
+```
+src/app/
+├── components/
+│   ├── home/          # página inicial
+│   ├── register/      # formulário de cadastro
+│   └── list-user/      # listagem, edição e exclusão
+├── models/             # interfaces (Usuario, UsuarioResponse, UsuarioUpdate)
+├── services/           # UsuarioService (HTTP client)
+└── validators/          # validadores customizados (CPF, senha)
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Autor
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Luis Carlos** — [github.com/luis-ferreira-jr](https://github.com/luis-ferreira-jr)
